@@ -44,7 +44,7 @@ const QuotationModal = ({
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/quotation", {
+      const response = await fetch("https://fsd-greenfarmly-project.onrender.com/api/quotation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -55,7 +55,7 @@ const QuotationModal = ({
           notes: formData.notes,
         }),
       });
-
+      
       const data = await response.json();
 
       if (data.success) {
