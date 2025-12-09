@@ -1,6 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ShoppingCart } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import shadeNetGreen from '@/assets/shade-net-green.jpg';
 import polyfilm from '@/assets/polyfilm.jpg';
@@ -55,6 +53,7 @@ const ProductsSection = () => {
   return (
     <section id="products" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -71,7 +70,13 @@ const ProductsSection = () => {
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <Card key={product.id} variant="product" className="animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Card
+              key={product.id}
+              variant="product"
+              className="animate-fade-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+
               {/* Product Image */}
               <div className="relative h-56 overflow-hidden">
                 <img
@@ -79,6 +84,7 @@ const ProductsSection = () => {
                   alt={product.name}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
+
                 <div className="absolute top-4 right-4 flex gap-1">
                   {product.colors.slice(0, 3).map((color) => (
                     <span
@@ -104,6 +110,7 @@ const ProductsSection = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {product.description}
                 </p>
+
                 <div className="flex flex-wrap gap-2">
                   {product.features.map((feature) => (
                     <span
@@ -116,12 +123,7 @@ const ProductsSection = () => {
                 </div>
               </CardContent>
 
-              <CardFooter>
-                <Button variant="outline" className="w-full">
-                  <ShoppingCart className="w-4 h-4 mr-2" />
-                  Request Quote
-                </Button>
-              </CardFooter>
+              {/* ❌ Request Quote button removed */}
             </Card>
           ))}
         </div>
